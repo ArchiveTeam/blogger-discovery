@@ -161,7 +161,7 @@ project = Project(
         </h2>
         <p>Blogger is removing pages. This is phase 1: content discovery.</p>
     """,
-    utc_deadline=datetime.datetime(2015, 03)
+    utc_deadline=datetime.datetime(2015, 3, 23, 23, 59, 0)
 )
 
 pipeline = Pipeline(
