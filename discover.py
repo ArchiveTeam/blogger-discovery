@@ -75,7 +75,7 @@ def fetch(url):
 
     Returns True, returns the response text. Otherwise, returns None
     '''
-    time.sleep(random.randint(3,30))
+    time.sleep(random.randint(10,25))
     print('Fetch', url)
     response = requests.get(url, headers=DEFAULT_HEADERS)
 
