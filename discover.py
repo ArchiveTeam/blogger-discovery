@@ -81,6 +81,8 @@ def fetch(url):
 
     # response doesn't have a reason attribute all the time??
     print('Got', response.status_code, getattr(response, 'reason'))
+    
+    sys.stdout.flush()
 
     if response.status_code == 200:
         # The item exists
