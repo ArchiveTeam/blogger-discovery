@@ -110,7 +110,7 @@ def extract_handle(text):
 def extract_blogs(text):
     '''Return a list of tags from the text.'''
     # Search for "http://onwonder.blogspot.com/"
-    return re.findall(r'"https?://([^\.]+)\.blogspot\.[a-z]+/"', text)
+    return re.findall(r'"(https?://[^"]+)" rel="contributor\-to nofollow"', text)
 
 if __name__ == '__main__':
     main()
