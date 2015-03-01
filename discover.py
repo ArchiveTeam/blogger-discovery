@@ -52,7 +52,8 @@ def check_range(start_num, end_num):
                 text = fetch(url)
             except FetchError:
                 # The server may be overloaded so wait a bit
-                print('Sleeping... If you see this')
+                print('Sleeping...')
+                sys.stdout.flush()
                 time.sleep(10)
             else:
                 if text:
@@ -75,13 +76,15 @@ def fetch(url):
 
     Returns True, returns the response text. Otherwise, returns None
     '''
-    time.sleep(random.randint(10,25))
+    time.sleep(random.randint(10, 25))
     print('Fetch', url)
+    sys.stdout.flush()
+
     response = requests.get(url, headers=DEFAULT_HEADERS)
 
     # response doesn't have a reason attribute all the time??
     print('Got', response.status_code, getattr(response, 'reason'))
-    
+
     sys.stdout.flush()
 
     if response.status_code == 200:
