@@ -44,7 +44,7 @@ def check_range(start_num, end_num):
 
         while True:
             # Try 20 times before giving up
-            if counter > 20:
+            if counter > 4:
                 # This will stop the script with an error
                 raise Exception('Giving up!')
 
@@ -97,6 +97,11 @@ def fetch(url):
     elif response.status_code == 404:
         # Does not exist
         return
+    elif response.status_code == 503:
+        # Captcha!
+        Print('You are receiving a temporary captcha from Google. Sleep 45 minutes.')
+        time.sleep(2700)
+        return
     else:
         # Problem
         raise FetchError()
@@ -106,7 +111,7 @@ def extract_handle(text):
     '''Return the page creator from the text.'''
     # Search for something like
     # "http://www.blogger.com/feeds/14366755180455532991/blogs"
-    match = re.search(r'"http?://www\.blogger\.[a-z]+/feeds/([0-9]+)/', text)
+    match = re.search(r'"https?://www\.blogger\.[a-z]+/feeds/([0-9]+)/', text)
 
     if match:
         return match.group(1)
