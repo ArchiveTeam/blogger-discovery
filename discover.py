@@ -102,7 +102,7 @@ def fetch(url):
         Print('You are receiving a temporary captcha from Google. Sleep 45 minutes.')
         sys.stdout.flush()
         time.sleep(2700)
-        return
+        return FetchError()
     else:
         # Problem
         raise FetchError()
