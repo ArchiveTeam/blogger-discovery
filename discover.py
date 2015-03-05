@@ -100,6 +100,7 @@ def fetch(url):
     elif response.status_code == 503:
         # Captcha!
         Print('You are receiving a temporary captcha from Google. Sleep 45 minutes.')
+        sys.stdout.flush()
         time.sleep(2700)
         return
     else:
