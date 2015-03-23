@@ -21,7 +21,7 @@ Running without a warrior
 -------------------------
 To run this outside the warrior, clone this repository, cd into its directory and run:
 
-    pip install seesaw requests
+    pip install --upgrade seesaw requests
 
 
 then start downloading with:
@@ -34,7 +34,7 @@ For more options, run:
 
 If you don't have root access and/or your version of pip is very old, you can replace "pip install seesaw" with:
 
-    wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py ; python get-pip.py --user ; ~/.local/bin/pip install --user seesaw
+    wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py ; python get-pip.py --user ; ~/.local/bin/pip install --upgrade --user seesaw
 
 so that pip and seesaw are installed in your home, then run
 
@@ -52,7 +52,7 @@ Distribution-specific setup
 
     adduser --system --group --shell /bin/bash archiveteam
     apt-get install -y git-core libgnutls-dev screen python-dev python-pip bzip2 zlib1g-dev
-    pip install seesaw requests
+    pip install --upgrade seesaw requests
     su -c "cd /home/archiveteam; git clone https://github.com/ArchiveTeam/blogger-discovery.git; cd blogger-discovery;" archiveteam
     screen su -c "cd /home/archiveteam/blogger-discovery/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam
     [... ctrl+A D to detach ...]
@@ -64,13 +64,13 @@ Wget-lua is also available on [ArchiveTeam's PPA](https://launchpad.net/~archive
 Ensure that you have the CentOS equivalent of bzip2 installed as well. You might need the EPEL repository to be enabled.
 
     yum -y install gnutls-devel python-pip zlib-devel
-    pip install seesaw requests
+    pip install --upgrade seesaw requests
     [... pretty much the same as above ...]
 
 ### For openSUSE:
 
     zypper install screen python-pip libgnutls-devel bzip2 python-devel gcc make
-    pip install seesaw requests
+    pip install --upgrade seesaw requests
     [... pretty much the same as above ...]
 
 ### For OS X:
@@ -78,7 +78,7 @@ Ensure that you have the CentOS equivalent of bzip2 installed as well. You might
 You need Homebrew. Ensure that you have the OS X equivalent of bzip2 installed as well.
 
     brew install python gnutls
-    pip install seesaw requests
+    pip install --upgrade seesaw requests
     [... pretty much the same as above ...]
 
 **There is a known issue with some packaged versions of rsync. If you get errors during the upload stage, blogger-discovery will not work with your rsync version.**
